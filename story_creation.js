@@ -6,6 +6,23 @@ var team_full_name;
 var full_name;
 var story_choice;
 
+async function checkURL(){
+    const urlParams = new URLSearchParams(window.location.search);
+    let team_selection = urlParams.get("team_choice");
+    if(team_selection != null){
+        team_choice.value = team_selection;
+        team_full_name = team_choice.options[team_choice.selectedIndex].text;
+        await fillPlayerChoice(parseInt(team_choice.value));
+        let player_selection = urlParams.get("player_choice");
+        console.log(player_selection);
+        player_choice.value = player_selection;
+        full_name = player_choice.options[player_choice.selectedIndex].text;
+        let story_selection = urlParams.get("story_choice");
+        story.value = story_selection;
+        onStoryChange();
+    }
+}
+
 async function getRosters() {
     const response = await fetch("https://raw.githubusercontent.com/jamesohara08/SpringTrainingStoryCreator/refs/heads/master/team_rosters.json");
     const data = await response.json();
@@ -85,3 +102,11 @@ player_choice.onchange = function(){
         onStoryChange();
     }
 }
+
+document.getElementById('share').onclick = function() {
+    var url = "https://github.com/jamesohara08/SpringTrainingStoryCreator?team_choice="+team_choice.value+"&player_choice="+player_choice.value+"&story_choice="+story.value;
+     navigator.clipboard.writeText(url);
+     alert("Copied the text: " + url);
+}
+
+window.addEventListener('load', checkURL);
