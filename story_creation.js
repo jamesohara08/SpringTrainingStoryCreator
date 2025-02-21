@@ -104,7 +104,7 @@ player_choice.onchange = function(){
 }
 
 document.getElementById('share').onclick = function() {
-    var url = "https://jamesohara08.github.io/SpringTrainingStoryCreator?team_choice="+team_choice.value+"&player_choice="+player_choice.value+"&story_choice="+story.value;
+    var url = "https://jamesohara08.github.io/SpringTrainingStoryCreator?team_choice="+team_choice.value+"&player_choice="+player_choice.value.replace(" ","%20")+"&story_choice="+story.value;
      navigator.clipboard.writeText(url);
      alert("Copied the text: " + url);
 }
