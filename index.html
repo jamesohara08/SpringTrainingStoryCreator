@@ -13,7 +13,7 @@
   <p>Build your own spring training beat story.</p>
   <div class="w3-row-padding">
     <div class="w3-col s6">
-      <select class="w3-select" name="option" id="team_choice">
+      <select class="w3-select" name="option" id="team_choice" autocomplete="off">
         <option value="" disabled selected>Select a Team</option>
         <option value="109">Arizona Diamondbacks</option>
         <option value="144">Atlanta Braves</option>
@@ -48,26 +48,28 @@
       </select>
     </div>
     <div class="w3-col s6">
-      <select class="w3-select" name="option" id="player_choice">
+      <select class="w3-select" name="option" id="player_choice" autocomplete="off">
         <option value="" disabled selected>Select a Player</option>
       </select>
     </div>
   </div>
   <div class="w3-row-padding">
-    <select class="w3-select" name="option" id="story_choice">
-        <option value="" disabled selected>Select a Story</option>
-        <option value = "0">Scrappy player knows how to win</option>
-        <option value = "1">Old veteran returns for one last run</option>
-        <option value = "2">New free agent acquisition adjusts</option>
-        <option value = "3">New trade acquisition adjusts</option>
-        <option value = "4">Star player ready to take it to the next level</option>
-        <option value = "8">Injured player looking for fresh start</option>
-        <option value = "9">Statistically speaking: Player due to regress</option>
-        <option value = "11">Top prospect creates buzz</option>
-        <option value = "5">Team adjusting to higher expectations (TEAM ONLY)</option>
-        <option value = "6">Team believes in itself (TEAM ONLY)</option>
-        <option value = "7">Team wants to bounce back (TEAM ONLY)</option>
-      </select>
+    <div class="w3-col s12">
+      <select class="w3-select" name="option" id="story_choice" autocomplete="off">
+          <option value="" disabled selected>Select a Story</option>
+          <option value = "0">Scrappy player knows how to win</option>
+          <option value = "1">Old veteran returns for one last run</option>
+          <option value = "2">New free agent acquisition adjusts</option>
+          <option value = "3">New trade acquisition adjusts</option>
+          <option value = "4">Star player ready to take it to the next level</option>
+          <option value = "8">Injured player looking for fresh start</option>
+          <option value = "9">Statistically speaking: Player due to regress</option>
+          <option value = "11">Top prospect creates buzz</option>
+          <option value = "5">Team adjusting to higher expectations (TEAM ONLY)</option>
+          <option value = "6">Team believes in itself (TEAM ONLY)</option>
+          <option value = "7">Team wants to bounce back (TEAM ONLY)</option>
+        </select>
+      </div>
   </div>
 </form>
 <div class="w3-content w3-container" id="story"></div>
