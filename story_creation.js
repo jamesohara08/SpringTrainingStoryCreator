@@ -1,8 +1,11 @@
 const team = document.getElementById("team_choice");
 var team_full_name = team.options[team.selectedIndex].text;
 var team_nickname = team_full_name.split(" ")[1];
-var full_name = "Jacob Young";
-var last_name = "Young";
+const response = await fetch("https://raw.githubusercontent.com/jamesohara08/SpringTrainingStoryCreator/refs/heads/master/team_rosters.json");
+const team_rosters = await response.json();
+player_list = team_rosters[team.value]
+var full_name = player_list[0]
+var last_name = full_name.split(' ')[1]
 
 const story_1 = `<div id="story_content"><h1>Despite lackluster stats ${last_name} makes things happen</h1><p>While many will be paying attention to the big stars as Spring Training begins, perhaps the most important player on the ${team_full_name} will go overlooked. He may not hit tape measure home runs or impress anyone with his arm, but his hustle cannot be understated. </p><p>${full_name} wasn't born with the natural talents that some of his teammates were, but that hasn't held him back from being one of the key contributors to the ${team_nickname}. ${last_name} has been told his entire life that he would never be a professional baseball player and he's used that as fuel to prove those critics wrong. </p> <p>&quot;All my life, all I heard was that I couldn't do it,&quot; said ${last_name}.&quot;Well here I am.&quot;</p> <p>${last_name}'s scrappy style of play and fun-loving attitude has endeared him to teammates and fans alike. Fans go crazy whenever ${last_name} comes to bat and it's no surprise, whenever ${last_name} has a bat in his hand good things happen. </p> <p>Whenever a clutch hit or play is needed, ${last_name} is there to deliver it. He willingly sacrifices himself for the good of the team and puts 110 percent effort into everything he does on the field. That selflessness is not found in many professional baseball players anymore and is why he is the glue that holds the team together.</p><p>Grit, hustle, sacrifice, these things won't show up in the stats column, but are what a team needs to win. As a proven winner, ${last_name} just knows how to win. </p><p>When ${last_name} is given the opportunity he makes things happen and the ${team_nickname} would be wise to give him more opportunities in the future. ${last_name} doesn't complain about his lack of playing time though, he just gives it his all every time he has the chance. </p><p>&quot;If I have one at-bat or 1000 it doesn't matter, I'm going to do whatever it takes to get the team a win,&quot; ${last_name} said. &quot;I'm happy when the team is happy.&quot;</p><p>So while all the attention and praise is heaped on his more well-known teammates, ${last_name} will take comfort knowing that he has contributed in some small way to the team's success. </p></div>`;
 
@@ -44,4 +47,5 @@ document.getElementById("story_choice").onchange = function(){
 document.getElementById("team_choice").onchange = function(){
     team_full_name = team.options[team.selectedIndex].text;
     team_nickname = team_full_name.split(" ")[1];
+
 };
