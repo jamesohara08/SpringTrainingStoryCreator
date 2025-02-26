@@ -46,7 +46,7 @@ async function fillPlayerChoice(team_index){
         newOption.value = player;
         newOption.text = player;
         player_choice.add(newOption);
-    })
+    });
 }
 
 function buildStory(story_number, team_full_name, full_name){
